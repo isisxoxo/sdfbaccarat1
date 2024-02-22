@@ -9,3 +9,5 @@ users
 .vercel
 
 .DS_Store
+
+.gitignore
