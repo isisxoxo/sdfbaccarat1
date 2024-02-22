@@ -51,7 +51,6 @@ public class ClientApp {
 
                     if (input.startsWith("login") || input.startsWith("bet")) {
                         String inputClean = input.replaceAll("\\s+", "|");
-                        System.out.println(inputClean); // TO REMOVE - TESTING
                         dos.writeUTF(inputClean);
                         dos.flush();
                     } else if (input.startsWith("deal")) {
@@ -69,7 +68,6 @@ public class ClientApp {
 
                     // Read outcome from server side
                     String outcome = dis.readUTF();
-                    System.out.println(outcome); // TO REMOVE
 
                     if (outcome.equals("end game")) {
                         System.out.println("Insufficient cards, stopping game now...");
@@ -145,16 +143,12 @@ public class ClientApp {
                         BufferedWriter bw = new BufferedWriter(new FileWriter(gameHistoryDB));
 
                         for (int i = 0; i < gameHistoryResults.size(); i++) {
-                            System.out.println(i); // TO REMOVE
                             if (i == 0) {
-                                System.out.println("i == 0"); // TO REMOVE
                                 bw.write(gameHistoryResults.get(i));
                             } else if (i % 6 == 0) {
-                                System.out.println("i % 6"); // TO REMOVE
                                 bw.newLine();
                                 bw.write(gameHistoryResults.get(i));
                             } else {
-                                System.out.println("else"); // TO REMOVE
                                 bw.write("," + gameHistoryResults.get(i));
                             }
                         }
